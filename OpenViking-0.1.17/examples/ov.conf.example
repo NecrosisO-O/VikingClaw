@@ -1,0 +1,127 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 1933,
+    "api_key": null,
+    "cors_origins": ["*"]
+  },
+  "storage": {
+    "vectordb": {
+      "name": "context",
+      "backend": "local",
+      "path": "./data",
+      "volcengine": {
+        "region": "cn-beijing",
+        "ak": null,
+        "sk": null
+      }
+    },
+    "agfs": {
+      "port": 1833,
+      "log_level": "warn",
+      "path": "./data",
+      "backend": "local",
+      "timeout": 10,
+      "retry_times": 3,
+      "s3_bucket": null,
+      "s3_region": null,
+      "s3_access_key": null,
+      "s3_secret_key": null
+    }
+  },
+  "embedding": {
+    "dense": {
+        "model": "doubao-embedding-vision-250615",
+        "api_key": "{your-api-key}",
+        "api_base": "https://ark.cn-beijing.volces.com/api/v3",
+        "dimension": 1024,
+        "provider": "volcengine",
+        "input": "multimodal"
+    }
+  },
+  "vlm": {
+    "model": "doubao-seed-1-8-251228",
+    "api_key": "{your-api-key}",
+    "api_base": "https://ark.cn-beijing.volces.com/api/v3",
+    "temperature": 0.0,
+    "max_retries": 2,
+    "provider": "volcengine"
+  },
+  "rerank": {
+    "ak": null,
+    "sk": null,
+    "host": "api-vikingdb.vikingdb.cn-beijing.volces.com",
+    "model_name": "doubao-seed-rerank",
+    "model_version": "251028",
+    "threshold": 0.1
+  },
+  "auto_generate_l0": true,
+  "auto_generate_l1": true,
+  "default_search_mode": "thinking",
+  "default_search_limit": 3,
+  "enable_memory_decay": true,
+  "memory_decay_check_interval": 3600,
+  "log_level": "INFO",
+  "log_format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+  "log_output": "stdout",
+  "parsers": {
+    "pdf": {
+      "strategy": "auto",
+      "max_content_length": 100000,
+      "max_section_size": 4000,
+      "section_size_flexibility": 0.3,
+      "mineru_endpoint": "https://mineru.example.com/api/v1",
+      "mineru_api_key": "{your-mineru-api-key}",
+      "mineru_timeout": 300.0
+    },
+    "code": {
+      "enable_ast": true,
+      "extract_functions": true,
+      "extract_classes": true,
+      "extract_imports": true,
+      "include_comments": true,
+      "max_line_length": 1000,
+      "max_token_limit": 50000,
+      "truncation_strategy": "head",
+      "warn_on_truncation": true
+    },
+    "image": {
+      "enable_ocr": false,
+      "enable_vlm": true,
+      "ocr_lang": "eng",
+      "vlm_model": "gpt-4-vision",
+      "max_dimension": 2048
+    },
+    "audio": {
+      "enable_transcription": true,
+      "transcription_model": "whisper-large-v3",
+      "language": null,
+      "extract_metadata": true
+    },
+    "video": {
+      "extract_frames": true,
+      "frame_interval": 10.0,
+      "enable_transcription": true,
+      "enable_vlm_description": false,
+      "max_duration": 3600.0
+    },
+    "markdown": {
+      "preserve_links": true,
+      "extract_frontmatter": true,
+      "include_metadata": true,
+      "max_heading_depth": 3
+    },
+    "html": {
+      "extract_text_only": false,
+      "preserve_structure": true,
+      "clean_html": true,
+      "extract_metadata": true
+    },
+    "text": {
+      "detect_language": true,
+      "split_by_paragraphs": true,
+      "max_paragraph_length": 1000,
+      "preserve_line_breaks": false
+    }
+  }
+}

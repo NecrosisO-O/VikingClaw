@@ -1,0 +1,25 @@
+# Local test/runtime artifacts
+.coverage
+**/.coverage
+__pycache__/
+*.pyc
+.pytest_cache/
+**/.pytest_cache/
+
+# Local virtual environments
+.venv/
+**/.venv/
+
+# Node package caches
+node_modules/
+**/node_modules/
+
+# OS/editor noise
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+
+# Local scratch output
+/tmp/
+*.log

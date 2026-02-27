@@ -1,0 +1,23 @@
+OpenClaw x OpenViking Integration Workspace - Notice
+
+This repository contains an integration workspace built from upstream projects.
+
+Included components:
+
+1) openclaw-2026.2.19/
+   - Upstream project: OpenClaw
+   - Upstream repository: https://github.com/openclaw/openclaw
+   - License: MIT
+   - Local license file: openclaw-2026.2.19/LICENSE
+
+2) OpenViking-0.1.17/
+   - Upstream project: OpenViking
+   - Upstream repository: https://github.com/volcengine/OpenViking
+   - License: Apache License 2.0
+   - Local license file: OpenViking-0.1.17/LICENSE
+
+Root-level integration documents and release notes are maintained in this
+workspace and are licensed under the root LICENSE unless otherwise stated.
+
+This workspace is an independent integration effort and is not an official
+release of the upstream projects.

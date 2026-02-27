@@ -1,0 +1,50 @@
+metadata:
+  id: "compression.dedup_decision"
+  name: "Memory Deduplication Decision"
+  description: "Decide whether new memory should CREATE/MERGE/SKIP"
+  version: "2.0.0"
+  language: "en"
+  category: "compression"
+
+variables:
+  - name: "candidate_content"
+    type: "string"
+    description: "Candidate memory content (L2)"
+    required: true
+  - name: "candidate_abstract"
+    type: "string"
+    description: "Candidate memory abstract (L0)"
+    required: true
+  - name: "candidate_overview"
+    type: "string"
+    description: "Candidate memory overview (L1)"
+    required: true
+  - name: "existing_memories"
+    type: "string"
+    description: "List of existing similar memories"
+    required: true
+
+template: |
+  Determine how to handle this candidate memory.
+
+  **Candidate Memory**:
+  Abstract: {{ candidate_abstract }}
+  Overview: {{ candidate_overview }}
+  Content: {{ candidate_content }}
+
+  **Existing Similar Memories**:
+  {{ existing_memories }}
+
+  Please decide:
+  - SKIP: Candidate memory duplicates existing memories, no need to save
+  - CREATE: This is completely new information, should be created
+  - MERGE: Candidate memory should be merged with existing memories
+
+  Return JSON format:
+  {
+    "decision": "skip|create|merge",
+    "reason": "Decision reason"
+  }
+
+llm_config:
+  temperature: 0.0

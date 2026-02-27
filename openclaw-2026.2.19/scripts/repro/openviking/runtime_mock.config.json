@@ -1,0 +1,41 @@
+{
+  "server": {
+    "host": "127.0.0.1",
+    "port": 33875,
+    "api_key": null,
+    "cors_origins": [
+      "*"
+    ]
+  },
+  "storage": {
+    "vectordb": {
+      "name": "context",
+      "backend": "local",
+      "path": "/tmp/oc_ov_itest/data"
+    },
+    "agfs": {
+      "port": 44925,
+      "log_level": "warn",
+      "path": "/tmp/oc_ov_itest/data",
+      "backend": "local"
+    }
+  },
+  "embedding": {
+    "dense": {
+      "model": "runtime-mock",
+      "api_key": "runtime-mock",
+      "api_base": "http://127.0.0.1:0",
+      "dimension": 1024,
+      "provider": "runtime-mock",
+      "input": "text"
+    }
+  },
+  "vlm": {
+    "model": "runtime-mock",
+    "api_key": "runtime-mock",
+    "api_base": "http://127.0.0.1:0",
+    "temperature": 0.0,
+    "max_retries": 1,
+    "provider": "runtime-mock"
+  }
+}
